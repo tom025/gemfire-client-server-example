@@ -1,0 +1,4 @@
+*.log
+*.retry
+.ansible_virtualenv/
+.vagrant

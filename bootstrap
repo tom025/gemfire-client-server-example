@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -e
+
+brew cask install ./homebrew-casks/vagrant186.rb
+vagrant plugin install landrush --version '1.2.0'
+
+brew install python
+
+SYS_PIP=$(brew --prefix python)/bin/pip
+SYS_VIRTUALENV=$(command -v virtualenv)
+
+$SYS_PIP install --upgrade pip
+$SYS_PIP install --upgrade virtualenv
+
+: ${ANSIBLE_VIRTUAL_ENV:=$PWD/.ansible_virtualenv}
+
+$SYS_VIRTUALENV $ANSIBLE_VIRTUAL_ENV
+
+PIP=$ANSIBLE_VIRTUAL_ENV/bin/pip
+
+$PIP install ansible
+
+echo "Ansible installed at $ANSIBLE_VIRTUAL_ENV/bin/ansible"

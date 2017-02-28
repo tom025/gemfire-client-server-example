@@ -1,0 +1,5 @@
+---
+- hosts: gemfire-locator
+  tasks:
+    - name: test
+      ping:

@@ -1,0 +1,3 @@
+#/usr/bin/env bash
+
+ansible-playbook -i vagrant-hosts.ini -v gemfire-locator/play.yml
